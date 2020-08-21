@@ -1,0 +1,26 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+node_js:
+  - '12'
+git:
+  depth: 3
+script:
+  - yarn test
+notifications:
+  slack: guasaveloper:bPDZ5blSjzAA77zfXdqdIyIX
+  email:
+    recipients:
+      - rubenesparzasoto95@gmail.com
+    on_success: always
+    on_failure: always
+deploy:
+  provider: heroku
+  api_key: 92b22036-df61-4738-8e32-891f74db84e6
+  app: platzi-store-backend-ruben
+  skip_cleanup: true
+  keep_history: true
+  on:
+    repo: resparzasoto/platzi-store-backend
